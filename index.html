@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jay Ahmed | Project Management Professional</title>
+<meta name="description" content="Jay Ahmed — PMP, CSM, CSPO. Senior Project Manager delivering complex IT and business solutions across finance, government, and healthcare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --navy: #0a1628;
+  --navy-mid: #12203d;
+  --navy-light: #1a2d52;
+  --gold: #c9a84c;
+  --gold-light: #e4c76b;
+  --gold-dim: rgba(201, 168, 76, 0.15);
+  --cream: #f5f0e8;
+  --cream-dark: #e8e0d0;
+  --white: #ffffff;
+  --text-primary: #0a1628;
+  --text-secondary: #4a5568;
+  --text-light: #8a95a8;
+  --border: rgba(10, 22, 40, 0.08);
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--text-primary);
+  background: var(--cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- NOISE TEXTURE OVERLAY --- */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* --- NAVIGATION --- */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1.25rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+nav.scrolled {
+  background: rgba(245, 240, 232, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--border);
+  padding: 0.75rem 3rem;
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-logo span {
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--gold);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links a:hover { color: var(--navy); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 28px;
+  height: 20px;
+  position: relative;
+  z-index: 200;
+}
+
+.nav-menu-btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--navy);
+  position: absolute;
+  left: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-menu-btn span:nth-child(1) { top: 0; }
+.nav-menu-btn span:nth-child(2) { top: 9px; }
+.nav-menu-btn span:nth-child(3) { top: 18px; }
+
+.nav-menu-btn.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+.nav-menu-btn.active span:nth-child(2) { opacity: 0; }
+.nav-menu-btn.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+/* --- HERO --- */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 4rem 4rem 6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-bottom: 1.75rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-name em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.hero-summary {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 0.7s forwards;
+}
+
+.hero-certs {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+.cert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.cert-badge svg {
+  width: 12px;
+  height: 12px;
+  fill: var(--gold);
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.25rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 1.1s forwards;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: var(--navy-light);
+  transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.btn-primary:hover::before { left: 0; }
+.btn-primary span { position: relative; z-index: 1; }
+.btn-primary svg { position: relative; z-index: 1; width: 14px; height: 14px; fill: var(--gold); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1.5px solid var(--navy);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: var(--navy);
+  color: var(--cream);
+}
+
+.hero-right {
+  background: var(--navy);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-right::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at 30% 50%, var(--navy-light) 0%, transparent 60%);
+}
+
+.hero-graphic {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  max-width: 400px;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.stat-item {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s forwards;
+}
+
+.stat-item:nth-child(1) { animation-delay: 0.6s; }
+.stat-item:nth-child(2) { animation-delay: 0.75s; }
+.stat-item:nth-child(3) { animation-delay: 0.9s; }
+.stat-item:nth-child(4) { animation-delay: 1.05s; }
+
+.stat-number {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+
+/* Decorative elements */
+.hero-line {
+  position: absolute;
+  bottom: 4rem;
+  left: 6rem;
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  opacity: 0;
+  animation: expandLine 1s 1.3s forwards;
+  z-index: 2;
+}
+
+@keyframes expandLine {
+  from { width: 0; opacity: 0; }
+  to { width: 60px; opacity: 1; }
+}
+
+/* Floating geometric shapes in hero right */
+.geo-shape {
+  position: absolute;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  z-index: 1;
+}
+
+.geo-1 {
+  width: 200px; height: 200px;
+  top: 10%; right: 10%;
+  transform: rotate(45deg);
+  animation: floatSlow 20s infinite ease-in-out;
+}
+
+.geo-2 {
+  width: 120px; height: 120px;
+  bottom: 20%; left: 15%;
+  border-radius: 50%;
+  animation: floatSlow 15s 3s infinite ease-in-out reverse;
+}
+
+.geo-3 {
+  width: 80px; height: 80px;
+  top: 60%; right: 25%;
+  transform: rotate(15deg);
+  border-color: rgba(201, 168, 76, 0.08);
+  animation: floatSlow 25s 5s infinite ease-in-out;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(45deg); }
+  50% { transform: translateY(-20px) rotate(50deg); }
+}
+
+/* --- SECTION SHARED --- */
+section {
+  position: relative;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 7rem 3rem;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 30px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+/* --- EXPERIENCE --- */
+.experience {
+  background: var(--white);
+}
+
+.exp-grid {
+  margin-top: 4rem;
+}
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.exp-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.exp-meta {
+  position: relative;
+}
+
+.exp-date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.exp-company {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.exp-location {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.3rem;
+}
+
+.exp-content h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.exp-projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.exp-tag {
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.7rem;
+  background: var(--gold-dim);
+  color: var(--gold);
+  border-radius: 2px;
+}
+
+.exp-desc {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.exp-desc li {
+  margin-bottom: 0.5rem;
+  list-style: none;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.exp-desc li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+.exp-budget {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* --- SKILLS --- */
+.skills {
+  background: var(--navy);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.skills .section-title {
+  color: var(--white);
+}
+
+.skills .section-subtitle {
+  color: rgba(255,255,255,0.5);
+}
+
+.skills-grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.skill-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.skill-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-card:hover::before {
+  transform: scaleX(1);
+}
+
+.skill-card:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-4px);
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: var(--gold);
+}
+
+.skill-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.skill-card h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--cream);
+}
+
+.skill-card p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+}
+
+.skill-tags span {
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  color: var(--gold);
+  border-radius: 1px;
+}
+
+/* --- TOOLS --- */
+.tools {
+  background: var(--cream);
+}
+
+.tools-marquee {
+  margin-top: 3rem;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.tools-marquee::before,
+.tools-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+}
+
+.tools-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--cream), transparent);
+}
+
+.tools-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--cream), transparent);
+}
+
+.tools-track {
+  display: flex;
+  gap: 3rem;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.tool-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.75rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--navy);
+  transition: all 0.3s;
+}
+
+.tool-item:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.1);
+}
+
+.tool-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- EDUCATION --- */
+.education {
+  background: var(--white);
+}
+
+.edu-grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.edu-card {
+  padding: 2.5rem;
+  border: 1px solid var(--border);
+  position: relative;
+  transition: all 0.4s;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.edu-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.edu-card:hover {
+  border-color: var(--gold);
+}
+
+.edu-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.edu-card:hover::after {
+  height: 100%;
+}
+
+.edu-type {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.edu-title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.edu-institution {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* --- CONTACT --- */
+.contact {
+  background: var(--navy);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 20% 50%, var(--navy-light) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(201, 168, 76, 0.05) 0%, transparent 40%);
+}
+
+.contact .section-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact .section-title {
+  color: var(--white);
+}
+
+.contact .section-subtitle {
+  color: rgba(255,255,255,0.5);
+  margin: 0 auto 3rem;
+}
+
+.contact-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-decoration: none;
+  color: var(--cream);
+  transition: all 0.4s;
+  min-width: 260px;
+}
+
+.contact-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-dim);
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.contact-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+}
+
+.contact-card-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 0.2rem;
+}
+
+.contact-card-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* --- FOOTER --- */
+footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* --- SCROLL PROGRESS --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--gold);
+  z-index: 200;
+  transition: width 0.1s;
+  width: 0%;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-left {
+    padding: 8rem 3rem 4rem;
+    min-height: 70vh;
+  }
+
+  .hero-right {
+    min-height: 50vh;
+  }
+
+  .exp-item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 1.5rem;
+  }
+
+  nav.scrolled {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: var(--cream);
+    flex-direction: column;
+    padding: 6rem 2rem;
+    gap: 1.5rem;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .nav-menu-btn {
+    display: block;
+  }
+
+  .hero-left {
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .hero-name {
+    font-size: 2.5rem;
+  }
+
+  .section-container {
+    padding: 5rem 1.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .edu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    padding: 2rem 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Jay<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Expertise</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#education">Credentials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Project Management Professional</p>
+    <h1 class="hero-name">Jay Ahmed<br><em>PMP CSM CSPO</em></h1>
+    <p class="hero-summary">Strategic leader delivering complex IT and business solutions across finance, government, and healthcare. I lead cross-functional teams, manage multi-million dollar budgets, and drive digital transformation from vision to execution.</p>
+    <div class="hero-certs">
+      <span class="cert-badge"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>PMP</span>
+      <span class="cert-badge"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>CSM</span>
+      <span class="cert-badge"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>CSPO</span>
+      <span class="cert-badge"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>SECRET L2</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">
+        <span>Get in Touch</span>
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#experience" class="btn-secondary">View Experience</a>
+    </div>
+    <div class="hero-line"></div>
+  </div>
+  <div class="hero-right">
+    <div class="geo-shape geo-1"></div>
+    <div class="geo-shape geo-2"></div>
+    <div class="geo-shape geo-3"></div>
+    <div class="hero-graphic">
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">13+</div>
+          <div class="stat-label">Years of<br>Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">$5M</div>
+          <div class="stat-label">Budget<br>Managed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Enterprise<br>Projects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Industries<br>Served</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section class="experience" id="experience">
+  <div class="section-container">
+    <p class="section-label">Career Timeline</p>
+    <h2 class="section-title">Work Experience</h2>
+    <p class="section-subtitle">A decade of delivering complex IT and business solutions for organizations that shape how Canadians live, bank, and access services.</p>
+
+    <div class="exp-grid">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">May 2025 &mdash; Present</p>
+          <p class="exp-company">WoodGreen Community Services</p>
+          <p class="exp-location">Toronto, ON</p>
+        </div>
+        <div class="exp-content">
+          <h3>Project Manager (Contract)</h3>
+          <div class="exp-projects">
+            <span class="exp-tag">ChatGPT Rollout</span>
+            <span class="exp-tag">M365 Copilot</span>
+            <span class="exp-tag">Digital Booking</span>
+            <span class="exp-tag">Visitor Mgmt</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Report directly to the CIO as a strategic delivery lead, translating executive priorities into execution-ready roadmaps across AI and digital transformation initiatives.</li>
+            <li>Lead cross-functional delivery across operations, technical teams, and vendors in federated environments, driving Agile execution from discovery through rollout.</li>
+            <li>Establish governance and executive reporting standards (RAID, milestone tracking, change control, dashboards) and prioritize high-value automation/AI opportunities.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">Apr 2023 &mdash; Present</p>
+          <p class="exp-company">Shared Services Canada</p>
+          <p class="exp-location">Toronto, ON</p>
+        </div>
+        <div class="exp-content">
+          <h3>Project Manager | Service Delivery Manager</h3>
+          <div class="exp-projects">
+            <span class="exp-tag">SD-WAN</span>
+            <span class="exp-tag">Azure DevOps</span>
+            <span class="exp-tag">Contact Center</span>
+            <span class="exp-tag">Real Property IT</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Led delivery of a secure, cloud-based Hosted Contact Center platform for the Canada Revenue Agency in partnership with IBM, using a hybrid Agile-Waterfall approach.</li>
+            <li>Managed refit, relocation, and decommissioning of 10+ large CRA sites, coordinating WAN, LAN, Firewall, Wi-Fi, cabling, and telephony teams.</li>
+            <li>Delivered results on time, within scope, and within budget while managing vendor relationships, contract negotiations, and SLAs.</li>
+          </ul>
+          <div class="exp-budget">Budget: $5M+</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">Aug 2022 &mdash; Aug 2023</p>
+          <p class="exp-company">Toronto West Ontario Health Team</p>
+          <p class="exp-location">Toronto, ON</p>
+        </div>
+        <div class="exp-content">
+          <h3>Project Manager</h3>
+          <div class="exp-projects">
+            <span class="exp-tag">PMO Setup</span>
+            <span class="exp-tag">Primary Care</span>
+            <span class="exp-tag">Hospital Info System</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Established the PMO office from the ground up, defining frameworks and governance for healthcare project delivery.</li>
+            <li>Led implementation efforts to expand integrated models of care across Toronto West Ontario Health and broader community.</li>
+            <li>Collaborated with doctors, community leaders, and stakeholders to define project scope and facilitate workshops on local healthcare initiatives.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">Jan 2021 &mdash; Aug 2022</p>
+          <p class="exp-company">Prospera Credit Union</p>
+          <p class="exp-location">Vancouver, BC</p>
+        </div>
+        <div class="exp-content">
+          <h3>Project Manager</h3>
+          <div class="exp-projects">
+            <span class="exp-tag">EPMO</span>
+            <span class="exp-tag">Merger &amp; Integration</span>
+            <span class="exp-tag">CRM</span>
+            <span class="exp-tag">O365 Migration</span>
+            <span class="exp-tag">Change Mgmt</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Oversaw end-to-end delivery of the merger and integration of Legacy Westminster Service and Prospera Credit Union.</li>
+            <li>Tracked, oversaw, and reported on all merger projects to C-level executives monthly.</li>
+            <li>Applied rigorous governance controls ensuring all deliverables met quality, regulatory, and financial compliance standards.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">Sep 2018 &mdash; Jul 2020</p>
+          <p class="exp-company">PricewaterhouseCoopers (PwC)</p>
+          <p class="exp-location">Ottawa, ON</p>
+        </div>
+        <div class="exp-content">
+          <h3>Manager (Project Manager)</h3>
+          <div class="exp-projects">
+            <span class="exp-tag">PMCOE</span>
+            <span class="exp-tag">Cloud</span>
+            <span class="exp-tag">HR Transformation</span>
+            <span class="exp-tag">Workday HCM</span>
+            <span class="exp-tag">Salesforce</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Led full project lifecycle management from initiation to closure for clients including ESDC, RCMP, and Shared Services Canada.</li>
+            <li>Conducted PM knowledge sessions and workshops to elevate EPMO competencies across the practice.</li>
+            <li>Acted as subject matter expert on project processes, managing resources for external clients nationwide.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-date">Jan 2013 &mdash; Sep 2018</p>
+          <p class="exp-company">BMO &amp; Scotiabank</p>
+          <p class="exp-location">Toronto, ON</p>
+        </div>
+        <div class="exp-content">
+          <h3>Project Coordinator</h3>
+          <div class="exp-projects">
+            <span class="exp-tag">AWS Migration</span>
+            <span class="exp-tag">O365 Migration</span>
+            <span class="exp-tag">Infrastructure</span>
+          </div>
+          <ul class="exp-desc">
+            <li>Coordinated AWS cloud infrastructure migration and Office 365 migration projects at BMO (2018).</li>
+            <li>Supported project delivery and coordination at Scotiabank for five years (2013&ndash;2017), building a strong foundation in enterprise financial services IT.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section class="skills" id="skills">
+  <div class="section-container">
+    <p class="section-label">Core Expertise</p>
+    <h2 class="section-title">What I Bring to<br>Every Engagement</h2>
+    <p class="section-subtitle">Deep expertise forged across government, healthcare, finance, and consulting.</p>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        </div>
+        <h3>Project Delivery</h3>
+        <p>Full lifecycle management from initiation to closure, ensuring alignment with strategic objectives, scope, budget, and quality standards.</p>
+        <div class="skill-tags">
+          <span>Planning</span>
+          <span>Execution</span>
+          <span>Governance</span>
+          <span>Budgeting</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3>Stakeholder Leadership</h3>
+        <p>Engaging C-level executives, cross-functional teams, vendors, and community leaders to drive consensus and deliver outcomes.</p>
+        <div class="skill-tags">
+          <span>Engagement</span>
+          <span>Negotiation</span>
+          <span>Communication</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        </div>
+        <h3>Agile & Scrum</h3>
+        <p>Certified Scrum Master and Product Owner driving hybrid Agile-Waterfall delivery across complex enterprise environments.</p>
+        <div class="skill-tags">
+          <span>Scrum</span>
+          <span>Kanban</span>
+          <span>SAFe</span>
+          <span>Hybrid</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h3>Risk & Change Management</h3>
+        <p>Proactive risk identification and mitigation strategies paired with structured change management to minimize disruption.</p>
+        <div class="skill-tags">
+          <span>RAID Logs</span>
+          <span>Mitigation</span>
+          <span>Change Control</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+        </div>
+        <h3>Digital Transformation</h3>
+        <p>Leading AI rollouts, cloud migrations, and enterprise platform deployments that modernize operations and enhance service delivery.</p>
+        <div class="skill-tags">
+          <span>AI/ML</span>
+          <span>Cloud</span>
+          <span>DevOps</span>
+          <span>Automation</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+        </div>
+        <h3>Financial Governance</h3>
+        <p>Budget development, forecasting, cost-benefit analysis, ROI computation, and financial compliance across multi-million dollar portfolios.</p>
+        <div class="skill-tags">
+          <span>Budgeting</span>
+          <span>Forecasting</span>
+          <span>ROI</span>
+          <span>Compliance</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Tools Section -->
+<section class="tools" id="tools">
+  <div class="section-container">
+    <p class="section-label">Technology Stack</p>
+    <h2 class="section-title">Tools & Platforms</h2>
+    <p class="section-subtitle">Enterprise-grade tools for planning, tracking, reporting, and collaboration.</p>
+    <div class="tools-marquee">
+      <div class="tools-track">
+        <div class="tool-item"><span class="tool-dot"></span>MS Project</div>
+        <div class="tool-item"><span class="tool-dot"></span>Power BI</div>
+        <div class="tool-item"><span class="tool-dot"></span>JIRA</div>
+        <div class="tool-item"><span class="tool-dot"></span>ServiceNow</div>
+        <div class="tool-item"><span class="tool-dot"></span>Salesforce</div>
+        <div class="tool-item"><span class="tool-dot"></span>SharePoint</div>
+        <div class="tool-item"><span class="tool-dot"></span>Azure DevOps</div>
+        <div class="tool-item"><span class="tool-dot"></span>GCDocs</div>
+        <div class="tool-item"><span class="tool-dot"></span>MS Teams</div>
+        <div class="tool-item"><span class="tool-dot"></span>Google Suite</div>
+        <div class="tool-item"><span class="tool-dot"></span>Onyx</div>
+        <div class="tool-item"><span class="tool-dot"></span>BITS</div>
+        <!-- Duplicate for seamless loop -->
+        <div class="tool-item"><span class="tool-dot"></span>MS Project</div>
+        <div class="tool-item"><span class="tool-dot"></span>Power BI</div>
+        <div class="tool-item"><span class="tool-dot"></span>JIRA</div>
+        <div class="tool-item"><span class="tool-dot"></span>ServiceNow</div>
+        <div class="tool-item"><span class="tool-dot"></span>Salesforce</div>
+        <div class="tool-item"><span class="tool-dot"></span>SharePoint</div>
+        <div class="tool-item"><span class="tool-dot"></span>Azure DevOps</div>
+        <div class="tool-item"><span class="tool-dot"></span>GCDocs</div>
+        <div class="tool-item"><span class="tool-dot"></span>MS Teams</div>
+        <div class="tool-item"><span class="tool-dot"></span>Google Suite</div>
+        <div class="tool-item"><span class="tool-dot"></span>Onyx</div>
+        <div class="tool-item"><span class="tool-dot"></span>BITS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education Section -->
+<section class="education" id="education">
+  <div class="section-container">
+    <p class="section-label">Education & Credentials</p>
+    <h2 class="section-title">Certifications &<br>Qualifications</h2>
+    <p class="section-subtitle">Industry-recognized credentials backed by a strong academic foundation.</p>
+
+    <div class="edu-grid">
+
+      <div class="edu-card">
+        <p class="edu-type">Certification</p>
+        <h3 class="edu-title">Project Management Professional (PMP)</h3>
+        <p class="edu-institution">Project Management Institute</p>
+      </div>
+
+      <div class="edu-card">
+        <p class="edu-type">Certification</p>
+        <h3 class="edu-title">Certified Scrum Master (CSM)</h3>
+        <p class="edu-institution">Scrum Alliance</p>
+      </div>
+
+      <div class="edu-card">
+        <p class="edu-type">Certification</p>
+        <h3 class="edu-title">Certified Scrum Product Owner (CSPO)</h3>
+        <p class="edu-institution">Scrum Alliance</p>
+      </div>
+
+      <div class="edu-card">
+        <p class="edu-type">Degree</p>
+        <h3 class="edu-title">Bachelor of Commerce, Business Technology Management</h3>
+        <p class="edu-institution">Toronto Metropolitan University</p>
+      </div>
+
+      <div class="edu-card">
+        <p class="edu-type">Security Clearance</p>
+        <h3 class="edu-title">SECRET Level 2 Federal Clearance</h3>
+        <p class="edu-institution">Government of Canada</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="section-container">
+    <p class="section-label">Let's Connect</p>
+    <h2 class="section-title">Ready to Deliver<br>Your Next Project</h2>
+    <p class="section-subtitle">Available for contract and full-time project management engagements across Canada.</p>
+
+    <div class="contact-grid">
+      <a href="mailto:ahmed.j.inc@gmail.com" class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div>
+          <p class="contact-card-label">Email</p>
+          <p class="contact-card-value">ahmed.j.inc@gmail.com</p>
+        </div>
+      </a>
+      <a href="tel:6133054830" class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        </div>
+        <div>
+          <p class="contact-card-label">Phone</p>
+          <p class="contact-card-value">613-305-4830</p>
+        </div>
+      </a>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div>
+          <p class="contact-card-label">Location</p>
+          <p class="contact-card-value">Toronto, Canada</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <span>&copy; 2025 Jay Ahmed. All rights reserved.</span>
+  <span>PMP &middot; CSM &middot; CSPO &middot; BCom</span>
+</footer>
+
+<script>
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Scroll progress
+const scrollProgress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  scrollProgress.style.width = (scrollTop / scrollHeight * 100) + '%';
+});
+
+// Mobile menu
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+menuBtn.addEventListener('click', () => {
+  menuBtn.classList.toggle('active');
+  navLinks.classList.toggle('open');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuBtn.classList.remove('active');
+    navLinks.classList.remove('open');
+  });
+});
+
+// Scroll reveal (IntersectionObserver)
+const revealElements = document.querySelectorAll('.exp-item, .skill-card, .edu-card');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      // Stagger the reveal
+      const siblings = entry.target.parentElement.querySelectorAll(entry.target.tagName.toLowerCase());
+      const idx = Array.from(siblings).indexOf(entry.target);
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, idx * 100);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
