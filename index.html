@@ -8,8 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="headshot.jpg" fetchpriority="high">
+<meta name="theme-color" content="#0a1628">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html, body { max-width: 100vw; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
 
 :root {
   --navy: #0a1628;
@@ -117,34 +121,26 @@ nav.scrolled {
 .nav-links a:hover { color: var(--navy); }
 .nav-links a:hover::after { width: 100%; }
 
-.nav-menu-btn {
+.nav-contact {
   display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 28px;
-  height: 20px;
-  position: relative;
-  z-index: 200;
-}
-
-.nav-menu-btn span {
-  display: block;
-  width: 100%;
-  height: 2px;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.1rem;
   background: var(--navy);
-  position: absolute;
-  left: 0;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.3s;
 }
 
-.nav-menu-btn span:nth-child(1) { top: 0; }
-.nav-menu-btn span:nth-child(2) { top: 9px; }
-.nav-menu-btn span:nth-child(3) { top: 18px; }
-
-.nav-menu-btn.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
-.nav-menu-btn.active span:nth-child(2) { opacity: 0; }
-.nav-menu-btn.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+.nav-contact:active {
+  background: var(--navy-light);
+}
 
 /* --- HERO --- */
 .hero {
@@ -872,6 +868,13 @@ section {
   color: var(--text-secondary);
 }
 
+.edu-note {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+}
+
 /* --- CONTACT --- */
 .contact {
   background: var(--navy);
@@ -1003,17 +1006,33 @@ footer a {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
+  nav { padding: 1.25rem 2rem; }
+  nav.scrolled { padding: 0.75rem 2rem; }
+
   .hero {
     grid-template-columns: 1fr;
   }
 
   .hero-left {
-    padding: 8rem 3rem 4rem;
-    min-height: 70vh;
+    padding: 7rem 2.5rem 3rem;
   }
 
   .hero-right {
-    min-height: 50vh;
+    min-height: auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .hero-graphic {
+    padding: 1rem 1rem 0;
+  }
+
+  .geo-1 { width: 140px; height: 140px; top: 8%; right: 6%; }
+  .geo-2 { width: 90px; height: 90px; bottom: 12%; left: 8%; }
+  .geo-3 { display: none; }
+
+  .hero-line {
+    left: 2.5rem;
+    bottom: 2rem;
   }
 
   .exp-item {
@@ -1024,75 +1043,175 @@ footer a {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .section-container {
+    padding: 6rem 2rem;
+  }
 }
 
 @media (max-width: 768px) {
   nav {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.25rem;
   }
 
   nav.scrolled {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.25rem;
   }
 
   .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background: var(--cream);
-    flex-direction: column;
-    padding: 6rem 2rem;
-    gap: 1.5rem;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    display: none;
   }
 
-  .nav-links.open {
-    right: 0;
-  }
-
-  .nav-links a {
-    font-size: 1rem;
-  }
-
-  .nav-menu-btn {
-    display: block;
+  .nav-contact {
+    display: inline-flex;
   }
 
   .hero-left {
-    padding: 7rem 1.5rem 3rem;
+    padding: 6.5rem 1.5rem 2.5rem;
   }
 
   .hero-name {
-    font-size: 2.5rem;
+    font-size: clamp(2.25rem, 9vw, 3rem);
+  }
+
+  .hero-summary {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .hero-certs {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cert-badge {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .hero-cta {
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.75rem;
+  }
+
+  .hero-line {
+    left: 1.5rem;
+    bottom: 1.25rem;
+  }
+
+  .hero-right {
+    padding: 2.5rem 1.25rem 3rem;
+  }
+
+  .hero-portrait {
+    width: min(240px, 70vw);
+    height: auto;
+    aspect-ratio: 280 / 340;
+    margin-bottom: 2rem;
+  }
+
+  .hero-portrait::before {
+    top: 12px;
+    left: 12px;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
   }
 
   .section-container {
-    padding: 5rem 1.5rem;
+    padding: 4.5rem 1.25rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .exp-item {
+    padding: 2.25rem 0;
+    gap: 0.75rem;
+  }
+
+  .exp-company {
+    font-size: 1.2rem;
   }
 
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-card {
+    padding: 1.75rem;
   }
 
   .edu-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .hero-stats {
-    padding: 2rem 1.5rem;
+  .edu-card {
+    padding: 2rem;
   }
 
-  .stat-number {
-    font-size: 2.5rem;
+  .tools-marquee::before,
+  .tools-marquee::after {
+    width: 60px;
+  }
+
+  .contact-grid {
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .contact-card {
+    min-width: 0;
+    width: 100%;
+    padding: 1.1rem 1.5rem;
   }
 
   footer {
     flex-direction: column;
     gap: 0.75rem;
     text-align: center;
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-certs {
+    gap: 0.4rem;
+  }
+
+  .cert-badge {
+    font-size: 0.6rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    flex: 1;
+    justify-content: center;
   }
 }
 </style>
@@ -1112,9 +1231,7 @@ footer a {
     <li><a href="#education">Credentials</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="#contact" class="nav-contact">Contact Me</a>
 </nav>
 
 <!-- Hero Section -->
@@ -1144,7 +1261,7 @@ footer a {
     <div class="geo-shape geo-3"></div>
     <div class="hero-graphic">
       <div class="hero-portrait">
-        <img src="headshot.PNG" alt="Jay Ahmed, Project Management Consultant" />
+        <img src="headshot.jpg" alt="Jay Ahmed, Project Management Consultant" width="560" height="680" loading="eager" fetchpriority="high" decoding="async" />
       </div>
       <div class="hero-stats">
         <div class="stat-item">
@@ -1464,7 +1581,8 @@ footer a {
       <div class="edu-card">
         <p class="edu-type">Security Clearance</p>
         <h3 class="edu-title">SECRET Level 2 Federal Clearance</h3>
-        <p class="edu-institution">Government of Canada</p>
+        <p class="edu-institution">PWGSC (now PSPC) &middot; Government of Canada</p>
+        <p class="edu-note">Federal clearance granting access to sensitive government information and secure project environments.</p>
       </div>
 
     </div>
@@ -1529,21 +1647,6 @@ window.addEventListener('scroll', () => {
   const scrollTop = document.documentElement.scrollTop;
   const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   scrollProgress.style.width = (scrollTop / scrollHeight * 100) + '%';
-});
-
-// Mobile menu
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('active');
-  navLinks.classList.toggle('open');
-});
-
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    menuBtn.classList.remove('active');
-    navLinks.classList.remove('open');
-  });
 });
 
 // Scroll reveal (IntersectionObserver)
