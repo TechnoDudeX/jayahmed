@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jay Ahmed | Project Management Professional</title>
-<meta name="description" content="Jay Ahmed — PMP, CSM, CSPO. Senior Project Manager delivering complex IT and business solutions across finance, government, and healthcare.">
+<title>Jay Ahmed | Project Management Consultant</title>
+<meta name="description" content="Jay Ahmed — PMP, CSM, CSPO. Project management consultant bridging business and IT across the public and private sector.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -322,15 +322,63 @@ nav.scrolled {
 .hero-graphic {
   position: relative;
   z-index: 2;
-  width: 80%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+}
+
+.hero-portrait {
+  position: relative;
+  width: 280px;
+  height: 340px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s 0.4s forwards;
+}
+
+.hero-portrait::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--gold);
+  z-index: 1;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-portrait:hover::before {
+  top: 10px;
+  left: 10px;
+}
+
+.hero-portrait img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(0.15) contrast(1.02);
+  transition: filter 0.5s;
+}
+
+.hero-portrait:hover img {
+  filter: grayscale(0) contrast(1);
 }
 
 .hero-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(201, 168, 76, 0.2);
 }
 
 .stat-item {
@@ -347,20 +395,20 @@ nav.scrolled {
 
 .stat-number {
   font-family: var(--serif);
-  font-size: 3.5rem;
+  font-size: 1.85rem;
   font-weight: 700;
   color: var(--gold);
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .stat-label {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   color: rgba(255,255,255,0.5);
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 /* Decorative elements */
@@ -473,7 +521,7 @@ section {
 
 .exp-item {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 280px 1fr;
   gap: 3rem;
   padding: 3rem 0;
   border-top: 1px solid var(--border);
@@ -502,10 +550,11 @@ section {
 
 .exp-company {
   font-family: var(--serif);
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   font-weight: 600;
   color: var(--navy);
-  line-height: 1.3;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .exp-location {
@@ -1057,7 +1106,7 @@ footer a {
 <nav id="navbar">
   <a href="#" class="nav-logo">Jay<span>.</span></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#experience">Experience</a></li>
+    <li><a href="#clients">Clients</a></li>
     <li><a href="#skills">Expertise</a></li>
     <li><a href="#tools">Tools</a></li>
     <li><a href="#education">Credentials</a></li>
@@ -1071,9 +1120,9 @@ footer a {
 <!-- Hero Section -->
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Project Management Professional</p>
+    <p class="hero-eyebrow">Project Management Consultant</p>
     <h1 class="hero-name">Jay Ahmed<br><em>PMP CSM CSPO</em></h1>
-    <p class="hero-summary">Strategic leader delivering complex IT and business solutions across finance, government, and healthcare. I lead cross-functional teams, manage multi-million dollar budgets, and drive digital transformation from vision to execution.</p>
+    <p class="hero-summary">A project management consultant handling IT and business-related projects across the public and private sector. I bridge the gap between business and IT &mdash; pairing an IT background with business acumen to help organizations make strategic IT decisions that enable growth.</p>
     <div class="hero-certs">
       <span class="cert-badge"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>PMP</span>
       <span class="cert-badge"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>CSM</span>
@@ -1085,7 +1134,7 @@ footer a {
         <span>Get in Touch</span>
         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="#experience" class="btn-secondary">View Experience</a>
+      <a href="#clients" class="btn-secondary">View Clients</a>
     </div>
     <div class="hero-line"></div>
   </div>
@@ -1094,10 +1143,13 @@ footer a {
     <div class="geo-shape geo-2"></div>
     <div class="geo-shape geo-3"></div>
     <div class="hero-graphic">
+      <div class="hero-portrait">
+        <img src="headshot.PNG" alt="Jay Ahmed, Project Management Consultant" />
+      </div>
       <div class="hero-stats">
         <div class="stat-item">
           <div class="stat-number">13+</div>
-          <div class="stat-label">Years of<br>Experience</div>
+          <div class="stat-label">Years<br>Experience</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">$5M</div>
@@ -1116,23 +1168,20 @@ footer a {
   </div>
 </section>
 
-<!-- Experience Section -->
-<section class="experience" id="experience">
+<!-- Clients Section -->
+<section class="experience" id="clients">
   <div class="section-container">
-    <p class="section-label">Career Timeline</p>
-    <h2 class="section-title">Work Experience</h2>
-    <p class="section-subtitle">A decade of delivering complex IT and business solutions for organizations that shape how Canadians live, bank, and access services.</p>
+    <p class="section-label">Selected Engagements</p>
+    <h2 class="section-title">Clients</h2>
+    <p class="section-subtitle">Public and private sector organizations I&rsquo;ve partnered with to deliver IT and business projects &mdash; from multi-million dollar platform rollouts to enterprise mergers.</p>
 
     <div class="exp-grid">
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">May 2025 &mdash; Present</p>
           <p class="exp-company">WoodGreen Community Services</p>
-          <p class="exp-location">Toronto, ON</p>
         </div>
         <div class="exp-content">
-          <h3>Project Manager (Contract)</h3>
           <div class="exp-projects">
             <span class="exp-tag">ChatGPT Rollout</span>
             <span class="exp-tag">M365 Copilot</span>
@@ -1140,21 +1189,18 @@ footer a {
             <span class="exp-tag">Visitor Mgmt</span>
           </div>
           <ul class="exp-desc">
-            <li>Report directly to the CIO as a strategic delivery lead, translating executive priorities into execution-ready roadmaps across AI and digital transformation initiatives.</li>
-            <li>Lead cross-functional delivery across operations, technical teams, and vendors in federated environments, driving Agile execution from discovery through rollout.</li>
-            <li>Establish governance and executive reporting standards (RAID, milestone tracking, change control, dashboards) and prioritize high-value automation/AI opportunities.</li>
+            <li>Partner directly with the CIO to translate executive priorities into execution-ready AI and digital transformation roadmaps.</li>
+            <li>Lead cross-functional delivery across operations, technical teams, and vendors in federated environments.</li>
+            <li>Established governance and executive reporting standards &mdash; RAID, milestone tracking, change control, dashboards.</li>
           </ul>
         </div>
       </div>
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">Apr 2023 &mdash; Present</p>
-          <p class="exp-company">Shared Services Canada</p>
-          <p class="exp-location">Toronto, ON</p>
+          <p class="exp-company">Shared Services Canada / Canada Revenue Agency</p>
         </div>
         <div class="exp-content">
-          <h3>Project Manager | Service Delivery Manager</h3>
           <div class="exp-projects">
             <span class="exp-tag">SD-WAN</span>
             <span class="exp-tag">Azure DevOps</span>
@@ -1162,9 +1208,9 @@ footer a {
             <span class="exp-tag">Real Property IT</span>
           </div>
           <ul class="exp-desc">
-            <li>Led delivery of a secure, cloud-based Hosted Contact Center platform for the Canada Revenue Agency in partnership with IBM, using a hybrid Agile-Waterfall approach.</li>
-            <li>Managed refit, relocation, and decommissioning of 10+ large CRA sites, coordinating WAN, LAN, Firewall, Wi-Fi, cabling, and telephony teams.</li>
-            <li>Delivered results on time, within scope, and within budget while managing vendor relationships, contract negotiations, and SLAs.</li>
+            <li>Delivered a secure, cloud-based Hosted Contact Center platform for the CRA in partnership with IBM using a hybrid Agile-Waterfall approach.</li>
+            <li>Managed refit, relocation, and decommissioning of 10+ large CRA sites &mdash; coordinating WAN, LAN, Firewall, Wi-Fi, cabling, and telephony teams.</li>
+            <li>Delivered on time, within scope, and within budget while managing vendor relationships, contract negotiations, and SLAs.</li>
           </ul>
           <div class="exp-budget">Budget: $5M+</div>
         </div>
@@ -1172,20 +1218,17 @@ footer a {
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">Aug 2022 &mdash; Aug 2023</p>
           <p class="exp-company">Toronto West Ontario Health Team</p>
-          <p class="exp-location">Toronto, ON</p>
         </div>
         <div class="exp-content">
-          <h3>Project Manager</h3>
           <div class="exp-projects">
             <span class="exp-tag">PMO Setup</span>
             <span class="exp-tag">Primary Care</span>
             <span class="exp-tag">Hospital Info System</span>
           </div>
           <ul class="exp-desc">
-            <li>Established the PMO office from the ground up, defining frameworks and governance for healthcare project delivery.</li>
-            <li>Led implementation efforts to expand integrated models of care across Toronto West Ontario Health and broader community.</li>
+            <li>Stood up the PMO from the ground up, defining frameworks and governance for healthcare project delivery.</li>
+            <li>Led implementation efforts to expand integrated models of care across Toronto West Ontario Health and the broader community.</li>
             <li>Collaborated with doctors, community leaders, and stakeholders to define project scope and facilitate workshops on local healthcare initiatives.</li>
           </ul>
         </div>
@@ -1193,12 +1236,9 @@ footer a {
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">Jan 2021 &mdash; Aug 2022</p>
           <p class="exp-company">Prospera Credit Union</p>
-          <p class="exp-location">Vancouver, BC</p>
         </div>
         <div class="exp-content">
-          <h3>Project Manager</h3>
           <div class="exp-projects">
             <span class="exp-tag">EPMO</span>
             <span class="exp-tag">Merger &amp; Integration</span>
@@ -1208,20 +1248,17 @@ footer a {
           </div>
           <ul class="exp-desc">
             <li>Oversaw end-to-end delivery of the merger and integration of Legacy Westminster Service and Prospera Credit Union.</li>
-            <li>Tracked, oversaw, and reported on all merger projects to C-level executives monthly.</li>
-            <li>Applied rigorous governance controls ensuring all deliverables met quality, regulatory, and financial compliance standards.</li>
+            <li>Tracked and reported on all merger projects to C-level executives monthly.</li>
+            <li>Applied rigorous governance controls so all deliverables met quality, regulatory, and financial compliance standards.</li>
           </ul>
         </div>
       </div>
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">Sep 2018 &mdash; Jul 2020</p>
           <p class="exp-company">PricewaterhouseCoopers (PwC)</p>
-          <p class="exp-location">Ottawa, ON</p>
         </div>
         <div class="exp-content">
-          <h3>Manager (Project Manager)</h3>
           <div class="exp-projects">
             <span class="exp-tag">PMCOE</span>
             <span class="exp-tag">Cloud</span>
@@ -1230,8 +1267,8 @@ footer a {
             <span class="exp-tag">Salesforce</span>
           </div>
           <ul class="exp-desc">
-            <li>Led full project lifecycle management from initiation to closure for clients including ESDC, RCMP, and Shared Services Canada.</li>
-            <li>Conducted PM knowledge sessions and workshops to elevate EPMO competencies across the practice.</li>
+            <li>Led full project lifecycle delivery for federal clients including ESDC, RCMP, and Shared Services Canada.</li>
+            <li>Ran PM knowledge sessions and workshops to elevate EPMO competencies across the practice.</li>
             <li>Acted as subject matter expert on project processes, managing resources for external clients nationwide.</li>
           </ul>
         </div>
@@ -1239,20 +1276,17 @@ footer a {
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-date">Jan 2013 &mdash; Sep 2018</p>
           <p class="exp-company">BMO &amp; Scotiabank</p>
-          <p class="exp-location">Toronto, ON</p>
         </div>
         <div class="exp-content">
-          <h3>Project Coordinator</h3>
           <div class="exp-projects">
             <span class="exp-tag">AWS Migration</span>
             <span class="exp-tag">O365 Migration</span>
             <span class="exp-tag">Infrastructure</span>
           </div>
           <ul class="exp-desc">
-            <li>Coordinated AWS cloud infrastructure migration and Office 365 migration projects at BMO (2018).</li>
-            <li>Supported project delivery and coordination at Scotiabank for five years (2013&ndash;2017), building a strong foundation in enterprise financial services IT.</li>
+            <li>Delivered AWS cloud infrastructure migration and Office 365 migration projects at BMO.</li>
+            <li>Supported enterprise project delivery at Scotiabank across financial services IT initiatives.</li>
           </ul>
         </div>
       </div>
