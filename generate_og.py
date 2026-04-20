@@ -112,7 +112,7 @@ if headshot:
 
 stats = [
     ("13+", "YEARS"),
-    ("$5M", "BUDGET"),
+    ("$100M", "BUDGET"),
     ("10+", "PROJECTS"),
     ("4", "SECTORS"),
 ]
