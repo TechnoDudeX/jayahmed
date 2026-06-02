@@ -7,7 +7,8 @@ Personal landing page for Jay Ahmed — Project Management Consultant (PMP, CSM,
 Single-file static site. Vanilla HTML, CSS, and JS with inline styles and scripts. No build step.
 
 - `index.html` — the page
-- `headshot.PNG` — hero portrait
+- `headshot.jpg` — hero portrait
+- `og-image.jpg` — Open Graph / social share image (regenerate with `generate_og.py`)
 
 ## Local development
 
